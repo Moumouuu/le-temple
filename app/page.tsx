@@ -1,10 +1,9 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { couldStartTrivia } from "typescript";
-
-const inter = Inter({ subsets: ["latin"] });
-
+import LoginModal from "./components/modals/LoginModal";
 
 export default function Home() {
-  return <div className="text-red-600">Hello world !</div>;
+  return (
+    <div className="relative">
+      <h1>Home</h1>
+    </div>
+  );
 }

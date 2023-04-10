@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import fonts */
+@font-face {
+  font-family: "Cheee Conshred";
+  src: url("/assets/fonts/CheeeConshred.ttf") format("truetype");
+}
+
+/*Colors : 
+Primary Green (dark): #095234
+Secondary Green (light): #16925F
+
+Primary Beige (light): #FFFAE6
+Secondary Beige (dark): #FFF3C2
+*/
+
+/* Font for title*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background: -webkit-linear-gradient(#16925f 0%, #095234 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Cheee Conshred", cursive;
+  /*color: linear-gradient(90deg, #16925F 0%, #095234 100%);*/
+}
+
+body {
+  background-color: #fffae6;
+}
