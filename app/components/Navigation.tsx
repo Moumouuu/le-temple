@@ -7,13 +7,17 @@ import React from "react";
 import Arrow from "./Arrow";
 import LoginModal from "./modals/LoginModal";
 import useLoginModal from "../hooks/useLoginModal";
+import Login from "./navigation/Login";
+import userType from "../types/userType";
 
-const Navigation = () => {
+
+
+const Navigation = ({ currentUser }: userType) => {
   const { showModal, onOpen } = useLoginModal();
   const router = usePathname();
 
   return (
-    <header className="p-3">
+    <header className="py-3 px-5">
       <nav className="flex items-center justify-between">
         <div>
           <Image
@@ -43,12 +47,7 @@ const Navigation = () => {
           </ul>
         </div>
         <div>
-          <button
-            onClick={onOpen}
-            className="border-4 border-[#095234] bg-transparent p-2 rounded-xl"
-          >
-            Connexion
-          </button>
+          <Login onOpen={onOpen} currentUser={currentUser} />
         </div>
       </nav>
       {showModal && <LoginModal />}

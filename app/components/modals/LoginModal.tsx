@@ -3,7 +3,7 @@
 import React from "react";
 import { signIn } from "next-auth/react";
 
-import { BsFacebook, BsApple, BsGithub } from "react-icons/bs";
+import { BsApple, BsGithub } from "react-icons/bs";
 import { AiFillInstagram, AiFillGoogleCircle } from "react-icons/ai";
 
 import Modal from "./Modal";
@@ -18,23 +18,16 @@ const LoginModal = () => {
       icon: <AiFillGoogleCircle />,
       signin: "google",
     },
-    /*{
-      name: "Facebook",
-      icon: <BsFacebook />,
-      signin:"facebook"
-
-    },
     {
       name: "Apple",
       icon: <BsApple />,
       signin:"apple"
-
     },
     {
       name: "Instagram",
       icon: <AiFillInstagram />,
       signin:"instagram"
-    },*/
+    },
     {
       name: "GitHub",
       icon: <BsGithub />,
