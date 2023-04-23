@@ -1,16 +1,16 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+
 import Arrow from "./Arrow";
 import LoginModal from "./modals/LoginModal";
 import useLoginModal from "../hooks/useLoginModal";
 import Login from "./navigation/Login";
+
 import userType from "../types/userType";
-
-
 
 const Navigation = ({ currentUser }: userType) => {
   const { showModal, onOpen } = useLoginModal();

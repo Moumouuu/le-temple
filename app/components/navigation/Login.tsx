@@ -1,7 +1,8 @@
 import React from "react";
-import userType from "../../types/userType";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 
+import userType from "../../types/userType";
 interface LoginProps {
   onOpen: () => void;
   currentUser: userType;
@@ -19,6 +20,7 @@ export const Login = ({ onOpen, currentUser }: LoginProps) => {
     );
   return (
     <Image
+      onClick={() => signOut()}
       src={currentUser.image}
       alt="avatar"
       width={60}
