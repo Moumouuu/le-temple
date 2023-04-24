@@ -19,19 +19,19 @@ const LoginModal = () => {
       signin: "google",
     },
     {
-      name: "Apple",
-      icon: <BsApple />,
-      signin:"apple"
+      name: "GitHub",
+      icon: <BsGithub />,
+      signin: "github",
     },
     {
       name: "Instagram",
       icon: <AiFillInstagram />,
-      signin:"instagram"
+      signin: "instagram",
     },
     {
-      name: "GitHub",
-      icon: <BsGithub />,
-      signin: "github",
+      name: "Apple",
+      icon: <BsApple />,
+      signin: "apple",
     },
   ];
 
@@ -41,10 +41,10 @@ const LoginModal = () => {
         <button
           onClick={() => signIn(provider.signin)}
           key={index}
-          className="flex items-center bg-transparent w-full my-3 border-4 border-[#095234] p-2 rounded-xl"
+          className="flex items-center bg-transparent my-3 border-4 border-[#095234] p-2 rounded-xl hover:bg-[#095234] hover:text-white duration-300 ease-in-out"
         >
-          <span className="text-3xl text-[#16925F]">{provider.icon}</span>{" "}
-          <span className="ml-[30px]">With {provider.name}</span>
+          <span className="text-3xl text-[#16925F]">{provider.icon}</span>
+          <span className="ml-[40px]">With {provider.name}</span>
         </button>
       ))}
     </div>

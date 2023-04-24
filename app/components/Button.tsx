@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
 
-const Button = () => {
-  return (
-    <div>Button</div>
-  )
+interface ButtonProps {
+  label: string;
+  action: () => void;
+  large?: boolean;
 }
 
-export default Button
+const Button = ({ label, action, large }: ButtonProps) => {
+  return (
+    <button
+      onClick={action}
+      className={`border-4 border-[#095234] bg-transparent rounded-xl hover:bg-[#095234] hover:text-white duration-300 ease-in-out
+      ${large ? "text-xl px-5 py-3" : "p-2"} `}
+    >
+      {label}
+    </button>
+  );
+};
+
+export default Button;

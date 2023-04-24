@@ -7,7 +7,6 @@
   font-family: "Cheee Conshred";
   src: url("/assets/fonts/CheeeConshred.ttf") format("truetype");
 }
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 
 /*Colors : 
 Primary Green (dark): #095234
@@ -30,6 +29,7 @@ h6 {
   font-family: "Cheee Conshred", cursive;
   /*color: linear-gradient(90deg, #16925F 0%, #095234 100%);*/
 }
+
 
 body {
   background-color: #fffae6;
