@@ -1,8 +1,8 @@
+import { Cinzel_Decorative } from "@next/font/google";
+import getCurrentUser from "./actions/getCurrentUser";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import "./globals.css";
-import { Cinzel_Decorative } from "@next/font/google";
-import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata = {
   title: "Le Temple - You & You",

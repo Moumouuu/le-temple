@@ -18,7 +18,7 @@ const Modal = ({ title, body, handleClose }: ModalProps) => {
             onClick={handleClose}
             className="absolute top-3 right-3 text-3xl cursor-pointer rotate-0 hover:rotate-180 duration-300"
           >
-            <AiOutlineCloseCircle />
+            <AiOutlineCloseCircle className="text-4xl" />
           </div>
           <div>
             <Image

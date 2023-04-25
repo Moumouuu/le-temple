@@ -23,13 +23,12 @@ h3,
 h4,
 h5,
 h6 {
-  background: -webkit-linear-gradient(#16925f 0%, #095234 100%);
+  background: -webkit-linear-gradient(0deg, #16925f 0%, #095234 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Cheee Conshred", cursive;
-  /*color: linear-gradient(90deg, #16925F 0%, #095234 100%);*/
+  line-height: 1.2;
 }
-
 
 body {
   background-color: #fffae6;

@@ -1,12 +1,13 @@
-import React from "react";
+"use client";
 
 interface ArrowProps {
   big?: boolean;
+  rotate?: boolean;
 }
 
-const Arrow = ({ big }: ArrowProps) => {
+const Arrow = ({ big, rotate }: ArrowProps) => {
   return (
-    <div>
+    <div className={rotate ? "rotate-180" : ""}>
       <svg
         width={big ? "300" : "80"}
         height="15"

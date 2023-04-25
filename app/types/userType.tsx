@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
 
-export default interface UserProps {
+export default interface UserType {
   currentUser: User | null;
 }
