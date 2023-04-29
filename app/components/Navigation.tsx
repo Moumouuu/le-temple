@@ -11,7 +11,11 @@ import Login from "./navigation/Login";
 
 import userType from "../types/userType";
 
-const Navigation = ({ currentUser }: userType) => {
+interface NavigationProps {
+  currentUser: userType;
+}
+
+const Navigation = ({ currentUser }: NavigationProps) => {
   const { showModal, onOpen } = useLoginModal();
   const router = usePathname();
 

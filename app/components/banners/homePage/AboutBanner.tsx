@@ -8,7 +8,7 @@ export const AboutBanner = () => {
     <div className="flex flex-col items-center my-10">
       <div className="flex flex-col md:flex-row w-[90vw]">
         <div className="flex flex-col">
-          <h2 className="text-center md:text-left text-[calc(3vw+2rem)] md:w-[90%]">
+          <h2 className=" md:text-left text-[calc(3vw+2rem)] md:w-[90%]">
             Le Temple c&apos;est quoi ?
           </h2>
           <p className="md:text-left leading-relaxed md:mt-10 mt-5 text-xl md:w-[90%]">
@@ -21,7 +21,7 @@ export const AboutBanner = () => {
           </p>
         </div>
         <div className="flex flex-col leading-relaxed mt-10 md:mt-0 items-end">
-          <h2 className="text-[calc(3vw+2rem)] text-center md:text-right">
+          <h2 className="text-[calc(3vw+2rem)] md:text-right">
             Un nombre de place limité !
           </h2>
           <p className=" md:text-right md:mt-10 mt-5 text-xl md:w-[90%]">
