@@ -22,7 +22,7 @@ const Navigation = ({ currentUser }: NavigationProps) => {
   return (
     <nav className="bg-transparent w-full">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center lg:w-[250px]">
           <Image
             src="/assets/images/TempleLogo.png"
             height={60}
@@ -31,12 +31,14 @@ const Navigation = ({ currentUser }: NavigationProps) => {
             className="rounded-xl mr-3 z-10"
             alt="LeTemple Logo"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap hidden md:block">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap hidden lg:block">
             Le Temple
           </span>
-        </a>
+        </Link>
         <div className="flex md:order-2">
-          <Login onOpen={onOpen} currentUser={currentUser} />
+          <div className="flex justify-end lg:w-[250px]">
+            <Login onOpen={onOpen} currentUser={currentUser} />
+          </div>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -67,15 +69,27 @@ const Navigation = ({ currentUser }: NavigationProps) => {
           <ul className="absolute md:relative top-0 md:top-auto left-0 md:left-auto w-[100vw] md:w-auto h-[100vh] md:h-auto bg-black/70 md:bg-transparent">
             <div className="w-1/2 md:w-auto h-[100vh] md:h-auto flex flex-col justify-center md:flex-row bg-[#095234] md:bg-[#FFFAE6] text-black">
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link className="text-[#FFFAE6] md:text-black" href={"/"}>Accueil</Link>
+                <Link className="text-[#FFFAE6] md:text-black" href={"/"}>
+                  Accueil
+                </Link>
                 {router === "/" && <Arrow big={false} />}
               </li>
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link className="text-[#FFFAE6] md:text-black" href={"/valeurs"}>Mes Valeurs</Link>
+                <Link
+                  className="text-[#FFFAE6] md:text-black"
+                  href={"/valeurs"}
+                >
+                  Mes Valeurs
+                </Link>
                 {router === "/valeurs" && <Arrow big={false} />}
               </li>
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link className="text-[#FFFAE6] md:text-black" href={"/histoire"}>Mon Histoire</Link>
+                <Link
+                  className="text-[#FFFAE6] md:text-black"
+                  href={"/histoire"}
+                >
+                  Mon Histoire
+                </Link>
                 {router === "/histoire" && <Arrow big={false} />}
               </li>
             </div>
