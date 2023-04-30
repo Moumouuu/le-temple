@@ -77,16 +77,16 @@ const Navigation = ({ currentUser }: NavigationProps) => {
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
                 <Link
                   className="text-[#FFFAE6] md:text-black"
-                  href={"/valeurs"}
+                  href={"/mes-valeurs"}
                 >
                   Mes Valeurs
                 </Link>
-                {router === "/valeurs" && <Arrow big={false} />}
+                {router === "/mes-valeurs" && <Arrow big={false} />}
               </li>
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
                 <Link
                   className="text-[#FFFAE6] md:text-black"
-                  href={"/histoire"}
+                  href={"/mon-histoire"}
                 >
                   Mon Histoire
                 </Link>

@@ -1,5 +1,5 @@
 import { Cinzel_Decorative } from "@next/font/google";
-
+import React from "react";
 import getCurrentUser from "./actions/getCurrentUser";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
