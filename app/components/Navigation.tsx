@@ -67,15 +67,15 @@ const Navigation = ({ currentUser }: NavigationProps) => {
           <ul className="absolute md:relative top-0 md:top-auto left-0 md:left-auto w-[100vw] md:w-auto h-[100vh] md:h-auto bg-black/70 md:bg-transparent">
             <div className="w-1/2 md:w-auto h-[100vh] md:h-auto flex flex-col justify-center md:flex-row bg-[#095234] md:bg-[#FFFAE6] text-black">
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link href={"/"}>Accueil</Link>
+                <Link className="text-[#FFFAE6] md:text-black" href={"/"}>Accueil</Link>
                 {router === "/" && <Arrow big={false} />}
               </li>
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link href={"/valeurs"}>Mes Valeurs</Link>
+                <Link className="text-[#FFFAE6] md:text-black" href={"/valeurs"}>Mes Valeurs</Link>
                 {router === "/valeurs" && <Arrow big={false} />}
               </li>
               <li className="px-4 my-3 md:my-0 flex flex-col items-center">
-                <Link href={"/histoire"}>Mon Histoire</Link>
+                <Link className="text-[#FFFAE6] md:text-black" href={"/histoire"}>Mon Histoire</Link>
                 {router === "/histoire" && <Arrow big={false} />}
               </li>
             </div>

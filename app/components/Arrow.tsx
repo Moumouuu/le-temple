@@ -2,14 +2,14 @@
 
 interface ArrowProps {
   big?: boolean;
-  rotate?: boolean;
+  rotate?: number;
 }
 
 const Arrow = ({ big, rotate }: ArrowProps) => {
   return (
-    <div className={rotate ? "rotate-180" : ""}>
+    <div className={rotate ? `rotate-${rotate}` : ""}>
       <svg
-        width={big ? "300" : "80"}
+        width={big ? "300" : "100"}
         height="15"
         viewBox="0 0 309 18"
         fill="none"
