@@ -33,6 +33,11 @@ h6 {
 .title {
   font-family: "Cheee Conshred", cursive;
 }
+.strokeme {
+  color: #fffae6;
+  text-shadow: -2px -2px 0 #095234, 2px -2px 0 #095234, -2px 2px 0 #095234,
+    2px 2px 0 #095234;
+}
 
 body {
   background-color: #fffae6;

@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-[#095234] text-white">
       <div className=" flex flex-col md:flex-row justify-center items-start p-12">
         <div className="flex flex-col justify-center text-left w-[300px]">
-          <span className="title text-white text-[calc(3vw+1.2rem)] my-4">
+          <span className="title text-white text-[calc(3vw+1rem)] my-4">
             Mentions
           </span>
           <Link className="my-2" href="/mentions-legales">
@@ -29,7 +29,7 @@ const Footer = () => {
           />
         </Link>
         <div className="flex flex-col justify-center text-left w-[300px]">
-          <span className="title text-[calc(3vw+1.2rem)] my-4">Contact</span>
+          <span className="title text-[calc(3vw+1rem)] my-4">Contact</span>
           <Link className="my-2" href="mailto:robin@pluviaux.fr">
             Envoyer un E-Mail
           </Link>
