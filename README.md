@@ -10,10 +10,10 @@
 
 - Learn Typescript
 - Learn NextJS 13
-- Learn Redux
+- Learn Zustand
 - Learn NextAuth
 - Learn Stripe
-- Improve uses of axios
+- Learn Framer Motion
 - Improve uses of tailwind
 - Improve uses of prisma
 - Improve uses of react-hot-toast
@@ -33,11 +33,12 @@
 
 ### Library / Technos :
 
-- axios
+- framer motion
 - react-icons
-- redux
+- zustand
 - tailwind
 - prisma
+- nextjs
 - nextAuth
 - stripe
 - react-hot-toast
