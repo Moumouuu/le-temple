@@ -1,10 +1,12 @@
 import { Cinzel_Decorative } from "@next/font/google";
+
 import React from "react";
+
 import getCurrentUser from "./actions/getCurrentUser";
+
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 
-import { AnimatePresence } from "framer-motion";
 import "./globals.css";
 
 export const metadata = {
@@ -33,9 +35,9 @@ export default async function RootLayout({
         />
       </head>
       <body className={cinzel.className}>
-          <Navigation currentUser={currentUser} />
-          <main>{children}</main>
-          <Footer />
+        <Navigation currentUser={currentUser} />
+        <main>{children}</main>
+        <Footer />
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
           async

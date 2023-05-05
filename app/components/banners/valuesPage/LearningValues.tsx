@@ -1,4 +1,3 @@
-"use client";
 import Container from "@/app/wrappers/Container";
 
 import { Cinzel_Decorative } from "@next/font/google";

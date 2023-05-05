@@ -1,4 +1,3 @@
-"use client";
 import { Cinzel_Decorative } from "@next/font/google";
 import Image from "next/image";
 
