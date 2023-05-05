@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import Container from "@/app/wrappers/Container";
 
-import Arrow from "../../Arrow";
-import ButtonOrder from "../../buttons/ButtonOrder";
+import Arrow from "../Arrow";
+import ButtonOrder from "../buttons/ButtonOrder";
 
 interface MainBannerProps {
   title: string;
@@ -23,7 +23,7 @@ export const MainBanner = ({ title }: MainBannerProps) => {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <h1 className="text-[calc(6vw+3rem)]">{title}</h1>
+          <h1 className="text-[calc(6vw+3rem)] text-center ">{title}</h1>
           <div className="flex items-center justify-center">
             <span className="text-3xl">You & You</span>
             <div className="hidden md:block">
