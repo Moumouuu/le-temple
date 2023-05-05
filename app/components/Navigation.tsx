@@ -90,7 +90,7 @@ const Navigation = ({ currentUser }: NavigationProps) => {
                 >
                   Mon Histoire
                 </Link>
-                {router === "/histoire" && <Arrow big={false} />}
+                {router === "/mon-histoire" && <Arrow big={false} />}
               </li>
             </div>
           </ul>

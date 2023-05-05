@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
 import { signIn } from "next-auth/react";
 
+import { AiFillGoogleCircle, AiFillInstagram } from "react-icons/ai";
 import { BsApple, BsGithub } from "react-icons/bs";
-import { AiFillInstagram, AiFillGoogleCircle } from "react-icons/ai";
 
-import Modal from "./Modal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import Modal from "./Modal";
 
 const LoginModal = () => {
   const { onClose } = useLoginModal();

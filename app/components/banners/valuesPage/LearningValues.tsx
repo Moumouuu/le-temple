@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/app/wrappers/Container";
 
 import { Cinzel_Decorative } from "@next/font/google";
@@ -32,7 +33,7 @@ export default function LearningValues() {
               width={400}
               height={400}
             />
-            <p className="text-xl text-justify">
+            <p className="text-xl text-justify leading-relaxed">
               L’apprentissage est{" "}
               <span className={`text-[#095234] ${cinzel.className}`}>long</span>{" "}
               et{" "}

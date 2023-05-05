@@ -1,6 +1,9 @@
 "use client";
+
 import Container from "@/app/wrappers/Container";
+
 import Image from "next/image";
+
 import Arrow from "../../Arrow";
 import ButtonOrder from "../../buttons/ButtonOrder";
 
@@ -19,7 +22,7 @@ export default function BeDifferent() {
           </div>
           <div className="flex flex-col">
             <h2 className="text-[calc(3vw+2rem)] mb-10">Soit différent !</h2>
-            <p className="text-xl">
+            <p className="text-xl leading-relaxed">
               Rencontre des personnes qui partagent tes intérêts et tes
               ambitions professionnelles.
               <br /> <br />

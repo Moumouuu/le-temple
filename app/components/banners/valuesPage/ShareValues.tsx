@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/app/wrappers/Container";
 
 import { Cinzel_Decorative } from "@next/font/google";
@@ -28,7 +29,7 @@ export default function ShareValues() {
               <h2 className="ml-2 mb-8 text-center lg:text-left text-[calc(3vw+2rem)] ">
                 Partager
               </h2>
-              <p className="text-xl text-justify">
+              <p className="text-xl text-justify leading-relaxed">
                 Sans partage de connaissance, il n’y aura pas{" "}
                 <span className={`text-[#095234] ${cinzel.className}`}>
                   d’apprentissage

@@ -1,8 +1,8 @@
+"use client";
 import Container from "@/app/wrappers/Container";
-import Image from "next/image";
 
 import { Cinzel_Decorative } from "@next/font/google";
-import Arrow from "../../Arrow";
+import Image from "next/image";
 
 const cinzel = Cinzel_Decorative({
   weight: "700",
@@ -26,7 +26,7 @@ export default function InnovateValues() {
           <div className="flex flex-col justify-center lg:items-center">
             <h2 className="ml-2 text-[calc(3vw+2rem)] mb-8">Innover</h2>
             <div className="flex flex-col md:flex-row">
-              <p className="text-xl text-justify mx-5">
+              <p className="text-xl text-justify mx-5 leading-relaxed">
                 « L’innovation, c’est quelque chose qu’on choisit parce qu’on a
                 une{" "}
                 <span className={`text-[#095234] ${cinzel.className}`}>
@@ -35,7 +35,7 @@ export default function InnovateValues() {
                 pour quelque chose. » <br /> - Steve Jobs
               </p>
               <br />
-              <p className="text-xl text-justify mx-5">
+              <p className="text-xl text-justify mx-5 leading-relaxed">
                 L’essence même de ce projet est de créer de{" "}
                 <span className={`text-[#095234] ${cinzel.className}`}>
                   grandes choses

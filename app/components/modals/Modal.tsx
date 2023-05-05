@@ -1,7 +1,12 @@
-import React, { ReactNode } from "react";
+"use client";
+
 import Image from "next/image";
-import Arrow from "../Arrow";
+
+import { ReactNode } from "react";
+
 import { AiOutlineCloseCircle } from "react-icons/ai";
+
+import Arrow from "../Arrow";
 
 interface ModalProps {
   title: string;

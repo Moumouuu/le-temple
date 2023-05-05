@@ -13,7 +13,7 @@ export const AboutBanner = () => {
             <h2 className=" md:text-left text-[calc(3vw+2rem)] md:w-[90%]">
               Le Temple c&apos;est quoi ?
             </h2>
-            <p className="md:text-left leading-relaxed md:mt-10 mt-5 text-xl md:w-[90%]">
+            <p className="md:text-left md:mt-10 mt-5 text-xl md:w-[90%] leading-relaxed">
               Le temple est un réseau social unique ! Avec une communauté de
               qualité exceptionnelle. Qui souhaite investir dans leurs réseaux
               professionnels.
@@ -26,7 +26,7 @@ export const AboutBanner = () => {
             <h2 className="text-[calc(3vw+2rem)] md:text-right">
               Un nombre de place limité !
             </h2>
-            <p className=" md:text-right md:mt-10 mt-5 text-xl md:w-[90%]">
+            <p className=" md:text-right md:mt-10 mt-5 text-xl md:w-[90%] leading-relaxed">
               Le Temple a un nombre de places limité. Je privilégie la qualité
               de chaque membre à la quantité.
               <br />

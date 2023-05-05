@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="bg-[#095234] text-white">
-      <div className=" flex flex-col md:flex-row justify-center items-start p-12">
+      <div className=" flex flex-col md:flex-row justify-center items-center md:items-start p-12">
         <div className="flex flex-col justify-center text-left w-[300px]">
           <span className="title text-white text-[calc(3vw+1rem)] my-4">
             Mentions
@@ -25,10 +27,10 @@ const Footer = () => {
             alt="logo"
             width={150}
             height={150}
-            className="mx-16 my-10"
+            className="lg:mx-16 lg:my-10"
           />
         </Link>
-        <div className="flex flex-col justify-center text-left w-[300px]">
+        <div className="flex flex-col justify-center md:text-right w-[300px]">
           <span className="title text-[calc(3vw+1rem)] my-4">Contact</span>
           <Link className="my-2" href="mailto:robin@pluviaux.fr">
             Envoyer un E-Mail

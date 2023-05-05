@@ -1,4 +1,6 @@
+"use client";
 import Container from "@/app/wrappers/Container";
+
 import { Cinzel_Decorative } from "@next/font/google";
 import Image from "next/image";
 
@@ -19,7 +21,7 @@ export default function QuoteTwoBanner() {
             <div className="hidden md:block">
               <Arrow rotate={90} />
             </div>
-            <p className="text-2xl w-[80%] md:w-[50%]">
+            <p className="text-2xl w-[80%] md:w-[50%] leading-relaxed">
               « Un{" "}
               <span className={`text-[#095234] ${cinzel.className}`}>
                 intellectuel{" "}
