@@ -6,6 +6,7 @@ const blackBox = {
     bottom: 0,
   },
   animate: {
+    transitionEnd: { display: "none" },
     height: 0,
     transition: {
       when: "afterChildren",
@@ -43,12 +44,11 @@ const text = {
 
 export const InitialTransition = () => {
   return (
-    <div className="absolute inset-0 flex items-center justify-center">
       <motion.div
         className="absolute z-10 flex items-center justify-center w-full bg-black"
         initial="initial"
         animate="animate"
-        variants={blackBox} 
+        variants={blackBox}
       >
         <motion.svg variants={textContainer} className="absolute z-50 flex">
           <pattern
@@ -66,7 +66,7 @@ export const InitialTransition = () => {
           </pattern>
           <text
             className="text-5xl font-bold"
-            text-anchor="middle"
+            textAnchor="middle"
             x="50%"
             y="50%"
             style={{ fill: "url(#pattern)" }}
@@ -75,6 +75,5 @@ export const InitialTransition = () => {
           </text>
         </motion.svg>
       </motion.div>
-    </div>
   );
 };
