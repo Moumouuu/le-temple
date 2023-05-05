@@ -1,6 +1,6 @@
-import { Cinzel_Decorative } from "@next/font/google";
-
 import React from "react";
+
+import { Cinzel_Decorative } from "@next/font/google";
 
 import getCurrentUser from "./actions/getCurrentUser";
 
@@ -11,7 +11,8 @@ import "./globals.css";
 
 export const metadata = {
   title: "Le Temple - You & You",
-  description: "Le Temple - You & You",
+  description:
+    "Le Temple - Le réseau professionnel payant pour les ambitieux. Connectez-vous avec des leaders, accédez à des opportunités de carrière et développez vos compétences. Rejoignez notre communauté dès maintenant.",
 };
 
 const cinzel = Cinzel_Decorative({
