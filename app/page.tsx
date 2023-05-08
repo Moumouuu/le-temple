@@ -1,5 +1,3 @@
-"use client";
-
 import MainBanner from "./components/banners/MainBanner";
 import AboutBanner from "./components/banners/homePage/AboutBanner";
 import BeDifferent from "./components/banners/homePage/BeDifferent";
@@ -12,6 +10,7 @@ export default async function Home() {
   return (
     <div>
       <InitialTransition />
+      {/* @ts-expect-error Server Component */}
       <MainBanner title="Le Temple" />
       <AboutBanner />
       <QuoteOneBanner />

@@ -1,5 +1,3 @@
-"use client";
-
 interface ButtonProps {
   label: string;
   action: () => void;

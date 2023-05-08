@@ -1,8 +1,8 @@
-"use client";
 import Image from "next/image";
 
 import Container from "@/app/wrappers/Container";
 
+import getCurrentUser from "@/app/actions/getCurrentUser";
 import Arrow from "../Arrow";
 import ButtonOrder from "../buttons/ButtonOrder";
 
@@ -10,7 +10,8 @@ interface MainBannerProps {
   title: string;
 }
 
-export const MainBanner = ({ title }: MainBannerProps) => {
+export const MainBanner = async ({ title }: MainBannerProps) => {
+  const currentUser = await getCurrentUser();
   return (
     <Container>
       <div className="flex justify-center md:justify-between h-[60vh]">
@@ -31,7 +32,8 @@ export const MainBanner = ({ title }: MainBannerProps) => {
             </div>
           </div>
           <div className="text-center mt-14">
-            <ButtonOrder />
+            {/* @ts-expect-error Server Component */}
+            <ButtonOrder currentUser={currentUser} />
           </div>
         </div>
         <div className="md:flex items-start hidden">
