@@ -10,7 +10,7 @@ interface MainBannerProps {
   title: string;
 }
 
-export const MainBanner = async ({ title }: MainBannerProps) => {
+export const MainBanner:any = async ({ title }: MainBannerProps) => {
   const currentUser = await getCurrentUser();
   return (
     <Container>
@@ -32,7 +32,6 @@ export const MainBanner = async ({ title }: MainBannerProps) => {
             </div>
           </div>
           <div className="text-center mt-14">
-            {/* @ts-expect-error Server Component */}
             <ButtonOrder currentUser={currentUser} />
           </div>
         </div>

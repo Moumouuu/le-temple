@@ -3,7 +3,7 @@ import Container from "@/app/wrappers/Container";
 import Arrow from "../../Arrow";
 import ButtonOrder from "../../buttons/ButtonOrder";
 
-export const AboutBanner = async () => {
+export const AboutBanner:any = async () => {
   const currentUser = await getCurrentUser();
   return (
     <Container>

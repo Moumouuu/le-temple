@@ -6,7 +6,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import Arrow from "../../Arrow";
 import ButtonOrder from "../../buttons/ButtonOrder";
 
-export default async function BeDifferent() {
+export const BeDifferent: any = async () => {
   const currentUser = await getCurrentUser();
   return (
     <Container>
@@ -44,4 +44,5 @@ export default async function BeDifferent() {
       </div>
     </Container>
   );
-}
+};
+export default BeDifferent;

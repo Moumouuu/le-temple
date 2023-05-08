@@ -13,7 +13,7 @@ interface ButtonOrderProps {
   currentUser: UserType;
 }
 
-export const ButtonOrder = async ({ currentUser }: ButtonOrderProps) => {
+export const ButtonOrder = ({ currentUser }: ButtonOrderProps) => {
   const stripePromise = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`);
   const [loading, setLoading] = useState(false);
   
@@ -57,7 +57,7 @@ export const ButtonOrder = async ({ currentUser }: ButtonOrderProps) => {
       <Toaster />
       <Button
         label={loading ? "Loading..." : "Précommander"}
-        action={() => {}}
+        action={createCheckOutSession}
         large
       />
     </>

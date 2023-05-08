@@ -10,7 +10,6 @@ export default async function Home() {
   return (
     <div>
       <InitialTransition />
-      {/* @ts-expect-error Server Component */}
       <MainBanner title="Le Temple" />
       <AboutBanner />
       <QuoteOneBanner />
