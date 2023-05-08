@@ -1,13 +1,13 @@
-"use client";
-
 import Container from "@/app/wrappers/Container";
 
 import Image from "next/image";
 
+import getCurrentUser from "@/app/actions/getCurrentUser";
 import Arrow from "../../Arrow";
 import ButtonOrder from "../../buttons/ButtonOrder";
 
-export default function BeDifferent() {
+export default async function BeDifferent() {
+  const currentUser = await getCurrentUser();
   return (
     <Container>
       <div className="flex flex-col items-center justify-center ">
@@ -35,7 +35,8 @@ export default function BeDifferent() {
           <div className="hidden md:block">
             <Arrow big />
           </div>
-          <ButtonOrder />
+          {/* @ts-ignore */}
+          <ButtonOrder currentUser={currentUser} />
           <div className="hidden md:block">
             <Arrow big rotate={180} />
           </div>
