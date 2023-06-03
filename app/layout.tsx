@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 
 import "./globals.css";
+import useStripeSession from "./hooks/useStripeSession";
 
 export const metadata = {
   title: "Le Temple - You & You",
