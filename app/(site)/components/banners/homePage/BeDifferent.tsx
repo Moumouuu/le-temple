@@ -3,8 +3,8 @@ import Container from "@/app/wrappers/Container";
 import Image from "next/image";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import Arrow from "../../Arrow";
-import ButtonOrder from "../../buttons/ButtonOrder";
+import Arrow from "../../../../components/Arrow";
+import ButtonOrder from "../../../../components/buttons/ButtonOrder";
 
 export const BeDifferent: any = async () => {
   const currentUser = await getCurrentUser();

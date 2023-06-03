@@ -3,7 +3,7 @@ import Container from "@/app/wrappers/Container";
 import { Cinzel_Decorative } from "@next/font/google";
 import Image from "next/image";
 
-import Arrow from "../../Arrow";
+import Arrow from "../../../../components/Arrow";
 
 const cinzel = Cinzel_Decorative({
   weight: "700",

@@ -2,13 +2,12 @@ import React from "react";
 
 import { Cinzel_Decorative } from "@next/font/google";
 
-import getCurrentUser from "./actions/getCurrentUser";
+import getCurrentUser from "../actions/getCurrentUser";
 
-import Footer from "./components/Footer";
-import Navigation from "./components/Navigation";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
 
-import "./globals.css";
-import useStripeSession from "./hooks/useStripeSession";
+import "../globals.css";
 
 export const metadata = {
   title: "Le Temple - You & You",

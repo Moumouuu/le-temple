@@ -3,14 +3,14 @@ import Image from "next/image";
 import Container from "@/app/wrappers/Container";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import Arrow from "../Arrow";
-import ButtonOrder from "../buttons/ButtonOrder";
+import Arrow from "../../../components/Arrow";
+import ButtonOrder from "../../../components/buttons/ButtonOrder";
 
 interface MainBannerProps {
   title: string;
 }
 
-export const MainBanner:any = async ({ title }: MainBannerProps) => {
+export const MainBanner: any = async ({ title }: MainBannerProps) => {
   const currentUser = await getCurrentUser();
   return (
     <Container>

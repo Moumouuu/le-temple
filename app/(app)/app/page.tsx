@@ -1,9 +1,7 @@
-import React from 'react'
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
-function App() {
-  return (
-    <div>App</div>
-  )
+export default async function App() {
+  const currentUser = await getCurrentUser();
+  //todo : vérif que l'utilisateur a bien payé avec un middleware
+  return <div>App</div>;
 }
-
-export default App

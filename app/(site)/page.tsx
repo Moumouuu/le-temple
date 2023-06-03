@@ -4,7 +4,7 @@ import BeDifferent from "./components/banners/homePage/BeDifferent";
 import QuoteOneBanner from "./components/banners/homePage/QuoteOneBanner";
 import QuoteTwoBanner from "./components/banners/homePage/QuoteTwoBanner";
 
-import { InitialTransition } from "./framer-motion/InitialTransition";
+import { InitialTransition } from "../framer-motion/InitialTransition";
 
 export default async function Home() {
   return (
