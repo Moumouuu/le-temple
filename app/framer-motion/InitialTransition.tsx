@@ -11,7 +11,7 @@ const blackBox = {
     height: 0,
     transition: {
       when: "afterChildren",
-      duration: 1.4,
+      duration: 1,
       ease: [0.87, 0, 0.13, 1],
     },
   },
@@ -24,7 +24,7 @@ const textContainer = {
   animate: {
     opacity: 0,
     transition: {
-      duration: 0.25,
+      duration: 0.2,
       when: "afterChildren",
     },
   },
@@ -37,7 +37,7 @@ const text = {
   animate: {
     y: 90,
     transition: {
-      duration: 1.6,
+      duration: 1.2,
       ease: [0.87, 0, 0.13, 1],
     },
   },

@@ -1,5 +1,5 @@
 "use client";
-import {useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import axios from "axios";
 
@@ -21,10 +21,13 @@ export default function useStripeSession({
       return false;
     }
 
-    const res = await axios.post("/api/get-stripe-session", {
-      sessionId: sessionId,
-      currentUser: currentUser,
-    });
+    const res = await axios.post(
+      "http://localhost:3001/api/get-stripe-session",
+      {
+        sessionId: sessionId,
+        currentUser: currentUser,
+      }
+    );
     if (res.data.user.paid) {
       //redirect to app page
       router.push("/app");
