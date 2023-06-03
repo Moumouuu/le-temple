@@ -29,7 +29,6 @@ export default function useStripeSession({
       }
     );
     if (res.data.user.paid) {
-      //redirect to app page
       router.push("/app");
     }
   };

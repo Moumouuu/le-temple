@@ -2,11 +2,12 @@
 
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useStripeSession from "@/app/hooks/useStripeSession";
 import UserType from "@/app/types/userType";
+import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast";
 import Button from "./Button";
 
@@ -20,6 +21,7 @@ export const ButtonOrder = ({ currentUser }: ButtonOrderProps) => {
   );
   const [loading, setLoading] = useState(false);
   const loginModal = useLoginModal();
+  const router = useRouter();
 
   // allow to check if the user is already paid & if the session is paid user are update in db
   useStripeSession({ currentUser });
@@ -66,7 +68,9 @@ export const ButtonOrder = ({ currentUser }: ButtonOrderProps) => {
         <Toaster />
         <Button
           label={loading ? "Chargement ..." : "Rentrer dans le Temple"}
-          action={() => {}}
+          action={() => {
+            router.push("/app");
+          }}
           large
         />
       </>

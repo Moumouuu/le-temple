@@ -1,9 +1,18 @@
 import prisma from "@/app/libs/prisma";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-async function GetStripeSession(req: any, res: any) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
+
   const { sessionId, currentUser } = req.body;
+  const user = currentUser;
 
   const session = await stripe.checkout.sessions.retrieve(sessionId);
 
@@ -17,10 +26,6 @@ async function GetStripeSession(req: any, res: any) {
         paid: true,
       },
     });
-    return res.json({ user: user });
   }
-
-  return res.json({ currentUser });
+  res.status(200).json({ user });
 }
-
-export default GetStripeSession;
