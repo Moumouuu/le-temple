@@ -22,15 +22,12 @@ export default function useStripeSession({
     }
 
     const res = await axios.post(
-      "http://localhost:3001/api/get-stripe-session",
+      'https://le-temple.vercel.app/api/get-stripe-session',
       {
         sessionId: sessionId,
         currentUser: currentUser,
       }
     );
-    if (res.data.user.paid) {
-      router.push("/app");
-    }
   };
 
   getCheckOutSession();
