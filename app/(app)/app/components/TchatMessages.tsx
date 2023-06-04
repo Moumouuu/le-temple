@@ -2,6 +2,7 @@
 
 import { pusherClient } from "@/app/libs/pusher";
 import UserType from "@/app/types/userType";
+
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -23,7 +24,7 @@ export default function TchatMessages({
   };
 
   const isUser = (message: any) => {
-    return message.user?.id === currentUser.id;
+    return message.user?.id === currentUser?.id;
   };
 
   useEffect(() => {
