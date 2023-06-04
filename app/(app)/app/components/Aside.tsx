@@ -24,18 +24,18 @@ export default function Aside({ currentUser }: asideProps) {
     },
     {
       label: "Groupes",
-      href: "/groups",
-      isActive: path === "/groups",
+      href: "/app/groups",
+      isActive: path === "/app/groups",
     },
     {
       label: "Mes Messages",
-      href: "/messages",
-      isActive: path === "/message",
+      href: "app/messages",
+      isActive: path === "/app/messages",
     },
     {
       label: "Mon Profil",
-      href: "/profile",
-      isActive: path === "/profile",
+      href: "app/profile",
+      isActive: path === "/app/profile",
     },
   ];
 
@@ -70,7 +70,7 @@ export default function Aside({ currentUser }: asideProps) {
         ;
       </div>
 
-      <div className="flex items-center p-8 bg-gradient-to-r from-[#095234] to-[#16925F] text-white text-1xl justify-between">
+      <div className="flex items-center p-6 bg-gradient-to-r from-[#095234] to-[#16925F] text-white text-1xl justify-between">
         <div className="flex items-center">
           <Image
             className="rounded-full mr-3"
@@ -81,7 +81,9 @@ export default function Aside({ currentUser }: asideProps) {
           ></Image>
           <p>{currentUser?.name}</p>
         </div>
-        <BsThreeDots size={30} />
+        <div className="cursor-pointer">
+          <BsThreeDots size={30} />
+        </div>
       </div>
     </div>
   );
