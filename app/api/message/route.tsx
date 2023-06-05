@@ -6,7 +6,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const { message, conversationId, userId } = await req.json();
 
   if (!message || !conversationId || !userId)
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    return NextResponse.json({ error: "Missing fields!" }, { status: 400 });
 
   const newMessage = await prisma.message.create({
     data: {
