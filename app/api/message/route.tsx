@@ -29,7 +29,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       { status: 400 }
     );
 
-  pusherServer.trigger(conversationId.toString(), "new-message", {
+  await pusherServer.trigger(conversationId.toString(), "new-message", {
     message: {
       ...newMessage,
       user,
