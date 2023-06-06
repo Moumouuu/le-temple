@@ -30,8 +30,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   // check if user is in conversation, if not add him to conversation
   const conversation: any = await getConversation({ id: conversationId });
-  if (!conversation.users.find((user: any) => user.id !== userId)) {
-    //todo check si ça marche bien
+  if (conversation.users.length === 0 || conversation.users.find((user: any) => user.id !== userId)) {
     await prisma.conversation.update({
       where: {
         id: conversationId,
