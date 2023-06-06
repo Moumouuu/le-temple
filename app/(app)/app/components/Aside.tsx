@@ -103,7 +103,7 @@ export default function Aside({ currentUser }: asideProps) {
       <div onClick={handleMenu} className="absolute left-5 top-5 z-50">
         <BsArrowLeft size={40} /> 
       </div>
-        <div className="absolute border-r-4 border-[#095234] h-[100vh] w-[100%] flex flex-col justify-between">
+        <div className="absolute z-50 border-r-4 border-[#095234] h-[100vh] w-[100%] flex flex-col justify-between">
       <div>
         <div className="flex flex-col justify-center m-4 mb-10">
           <Link href="/">

@@ -28,14 +28,14 @@ export default function Message({message, isUser, formatDate}:messageProps) {
                 height={50}
                 alt={`Picture of the user ${message.user.name}`}
               />
-              <div className={'flex flex-col' + (isUser(message) ? 'justify-end' : 'justify-start')}>
+              <div className={'flex flex-col ' + (isUser(message) ? 'justify-end' : 'justify-start')}>
                 <span className="text-xs">{message.user.name}</span>
                 <div
                 className={
-                  "z-10 rounded-2xl rounded-tl-none flex flex-col py-2 px-6 " +
+                  "z-10 rounded-2xl flex flex-col py-2 px-6 mx-2" +
                   (isUser(message)
-                    ? "border-4 border-[#095234] text-[#095234] bg-[#FFFAE6]"
-                    : "text-white bg-gradient-to-r from-[#095234] to-[#16925F] ")
+                    ? "border-4 rounded-tr-none border-[#095234] text-[#095234] bg-[#FFFAE6]"
+                    : "text-white rounded-tl-none bg-gradient-to-r from-[#095234] to-[#16925F] ")
                 }
               >
                 <span className="text-sm md:text-xl break-words">
