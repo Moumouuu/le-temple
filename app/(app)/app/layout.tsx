@@ -27,20 +27,12 @@ export default async function RootLayout({
     <html lang="fr">
       <head>
         <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
-          rel="stylesheet"
-        />
       </head>
       <body className={cinzel.className}>
-        <main className="flex">
+        <main className="flex relative">
           <Aside currentUser={currentUser} />
           {children}
         </main>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
-          async
-        ></script>
       </body>
     </html>
   );
