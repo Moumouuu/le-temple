@@ -16,6 +16,7 @@ export default async function getConversation({
         title: title,
       },
       include: {
+        users: true,
         messages: {
           include: {
             user: true,
