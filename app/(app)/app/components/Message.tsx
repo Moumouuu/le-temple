@@ -32,7 +32,7 @@ export default function Message({message, isUser, formatDate}:messageProps) {
                 <span className="text-xs">{message.user.name}</span>
                 <div
                 className={
-                  "z-10 rounded-2xl flex flex-col py-2 px-6 mx-2" +
+                  "z-10 rounded-2xl flex flex-col py-2 px-6 mx-2 " +
                   (isUser(message)
                     ? "border-4 rounded-tr-none border-[#095234] text-[#095234] bg-[#FFFAE6]"
                     : "text-white rounded-tl-none bg-gradient-to-r from-[#095234] to-[#16925F] ")

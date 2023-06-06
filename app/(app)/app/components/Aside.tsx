@@ -106,9 +106,7 @@ export default function Aside({ currentUser }: asideProps) {
         <div className="absolute z-50 border-r-4 border-[#095234] h-[100vh] w-[100%] flex flex-col justify-between">
       <div>
         <div className="flex flex-col justify-center m-4 mb-10">
-          <Link href="/">
             <h1 className="text-6xl text-center ">Le Temple</h1>
-          </Link>
           <div className="flex items-center justify-center">
             <span className="text-1xl">You & You</span>
             <div className="hidden md:block">
