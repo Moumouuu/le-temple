@@ -21,6 +21,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     where: {
       id: userId,
     },
+    //get messages array from user
+    include: {
+      Message: true,
+    },
   });
 
   if (!newMessage || !user)
@@ -36,5 +40,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
     },
   });
 
-  return NextResponse.json({ message: newMessage });
+  let badge = null;
+  if (
+    user.Message.length === 5 ||
+    user.Message.length === 10 ||
+    user.Message.length === 25 ||
+    user.Message.length === 50 ||
+    user.Message.length === 100 ||
+    user.Message.length === 500 ||
+    user.Message.length === 1000
+  ) {
+    //todo : create badge for user
+    badge = {
+      name: "Badge de message",
+      description: `Vous avez totalisé un total de ${user.Message.length} messages`,
+      imageUrl: `badge-message-${user.Message.length}.png`,
+    };
+  }
+
+  return NextResponse.json({ message: newMessage, badge });
 }

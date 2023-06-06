@@ -16,7 +16,7 @@ interface ModalProps {
 
 const Modal = ({ title, body, handleClose }: ModalProps) => {
   return (
-    <div className="absolute z-10 top-0 left-0 bg-black/70 w-full h-full">
+    <div className="absolute z-50 top-0 left-0 bg-black/70 w-full h-full">
       <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-gradient-to-b from-[#FFF3C2] to-[#FFFAE6] rounded-xl p-4 md:w-[35vw]">
         <div className="flex flex-col items-center">
           <div

@@ -8,6 +8,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { BsFillEmojiDizzyFill } from "react-icons/bs";
 import { IoSendSharp } from "react-icons/io5";
 
+import BadgeModal from "@/app/components/modals/BadgeModal";
+import useBadgeModal from "@/app/hooks/useBadgeModal";
 import axios from "axios";
 import EmojiPicker from "emoji-picker-react";
 import { useState } from "react";
@@ -29,6 +31,8 @@ export default function InputSend({
   const { register, handleSubmit, reset, setValue, getValues } =
     useForm<IFormInput>();
   const [showEmoji, setShowEmoji] = useState(false);
+  const badgeModal = useBadgeModal();
+  const { showModal } = useBadgeModal();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const res = await axios.post("/api/message", {
@@ -38,8 +42,14 @@ export default function InputSend({
     });
 
     if (res.data.error) {
-      toast.error(res.data.error);
+      return toast.error(res.data.error);
     }
+
+    if (res.data.badge) {
+      badgeModal.message = res.data.badge.description;
+      badgeModal.onOpen();
+    }
+
     reset();
   };
 
@@ -49,6 +59,8 @@ export default function InputSend({
 
   return (
     <div>
+      {showModal && <BadgeModal />}
+
       <Toaster />
       <form
         onSubmit={handleSubmit(onSubmit)}
