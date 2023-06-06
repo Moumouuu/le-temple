@@ -150,7 +150,7 @@ export default function Aside({ currentUser }: asideProps) {
     </>
     ) :
     (
-      <div onClick={handleMenu} className="absolute left-5 top-5 z-50">
+      <div onClick={handleMenu} className="absolute left-5 top-5 z-50 block md:hidden">
         <HiOutlineMenuAlt4 size={40} /> 
       </div>
     )}

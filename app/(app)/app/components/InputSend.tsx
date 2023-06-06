@@ -62,7 +62,7 @@ export default function InputSend({
           {...register("message", { required: true })}
         />
         <button type="submit">
-          <IoSendSharp size={30} color="#095234" />
+          <IoSendSharp size={30} className="mr-2" color="#095234" />
         </button>
         <BsFillEmojiDizzyFill
           size={30}
