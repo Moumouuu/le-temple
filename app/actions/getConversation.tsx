@@ -1,11 +1,15 @@
 import prisma from "@/app/libs/prisma";
 
 interface getConversationProps {
-  title: string;
+  title?: string;
+  id?: number;
 }
 
-export default async function getConversation({ title }: getConversationProps) {
-  const conversation = await prisma.conversation.findUnique({
+export default async function getConversation({ title, id }: getConversationProps) {
+
+  // find conversation by title (default channel only)
+  if(title){
+    const conversationByTitle = await prisma.conversation.findUnique({
     where: {
       title: title,
     },
@@ -17,7 +21,27 @@ export default async function getConversation({ title }: getConversationProps) {
       },
     },
   });
-  if (!conversation) return null;
 
-  return conversation;
+  return conversationByTitle;
+  }
+  
+  // find conversation by id (conversation with user)
+  if(id){
+    const conversationById = await prisma.conversation.findUnique({
+      where: {
+        id: id,
+      },
+      include: {
+        messages: {
+          include: {
+            user: true,
+          },
+        },
+      },
+    });
+    return conversationById;
+  }
+  
+  //default return
+  return null;
 }

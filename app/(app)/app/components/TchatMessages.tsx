@@ -5,6 +5,7 @@ import UserType from "@/app/types/userType";
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Message from "./Message";
 
 interface tchatMessagesProps {
   currentUser: UserType;
@@ -18,12 +19,12 @@ export default function TchatMessages({
   const [messages, setMessages] = useState(conversation as any);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const formatDate = (date: string) => {
+  const formatDate = (date: string):string => {
     const d = new Date(date);
     return `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
   };
 
-  const isUser = (message: any) => {
+  const isUser = (message: any):boolean => {
     return message.user?.id === currentUser?.id;
   };
 
@@ -51,43 +52,9 @@ export default function TchatMessages({
 
   return (
     <>
-      <div className="w-[100%] h-[100%] overflow-scroll">
+      <div className="w-[100%] h-[100%] overflow-y-scroll">
         {messages.messages?.map((message: any, i: any) => (
-          <div
-            key={i}
-            className={
-              "flex flex-col my-4 md:m-10 " +
-              (isUser(message) ? "items-end" : "items-start")
-            }
-          >
-            <div
-              className={
-                "flex items-center " +
-                (isUser(message) ? "flex-row-reverse" : "")
-              }
-            >
-              <Image
-                className="rounded-full mx-3"
-                src={message.user?.image}
-                width={50}
-                height={50}
-                alt={`Picture of the user ${message.user?.name}`}
-              />
-              <div
-                className={
-                  "z-10 rounded-2xl rounded-tl-none flex flex-col py-2 px-6 max-w-[70%] md:max-w-none " +
-                  (isUser(message)
-                    ? "border-4 border-[#095234] text-[#095234] bg-[#FFFAE6]"
-                    : "text-white bg-gradient-to-r from-[#095234] to-[#16925F] ")
-                }
-              >
-                <span className="text-sm md:text-xl break-words">
-                  {message.text}
-                </span>
-                <span className="text-xs">{formatDate(message.createdAt)}</span>
-              </div>
-            </div>
-          </div>
+          <Message key={i} message={message} isUser={isUser} formatDate={formatDate} />
         ))}
         <div ref={bottomRef} className="pt-24"></div>
       </div>
