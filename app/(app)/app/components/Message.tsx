@@ -29,7 +29,7 @@ export default function Message({message, isUser, formatDate}:messageProps) {
                 alt={`Picture of the user ${message.user.name}`}
               />
               <div className={'flex flex-col ' + (isUser(message) ? 'justify-end' : 'justify-start')}>
-                <span className={'mx-2 text-xs' + (isUser(message) ? 'text-right' : 'text-left')}>{message.user.name}</span>
+                <span className={'mx-2 text-xs ' + (isUser(message) ? 'text-right' : 'text-left')}>{message.user.name}</span>
                 <div
                 className={
                   "z-10 rounded-2xl flex flex-col py-2 px-6 mx-2 " +
