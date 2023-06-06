@@ -3,7 +3,6 @@
 import { pusherClient } from "@/app/libs/pusher";
 import UserType from "@/app/types/userType";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 
@@ -19,12 +18,12 @@ export default function TchatMessages({
   const [messages, setMessages] = useState(conversation as any);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const formatDate = (date: string):string => {
+  const formatDate = (date: string): string => {
     const d = new Date(date);
     return `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
   };
 
-  const isUser = (message: any):boolean => {
+  const isUser = (message: any): boolean => {
     return message.user?.id === currentUser?.id;
   };
 
@@ -54,7 +53,12 @@ export default function TchatMessages({
     <>
       <div className="w-[100%] h-[100%] overflow-y-scroll">
         {messages.messages?.map((message: any, i: any) => (
-          <Message key={i} message={message} isUser={isUser} formatDate={formatDate} />
+          <Message
+            key={i}
+            message={message}
+            isUser={isUser}
+            formatDate={formatDate}
+          />
         ))}
         <div ref={bottomRef} className="pt-24"></div>
       </div>

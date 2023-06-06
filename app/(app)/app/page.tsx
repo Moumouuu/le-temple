@@ -1,17 +1,27 @@
+import getConversation from "@/app/actions/getConversation";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import Header from "./components/Header";
+import SideBarListUsers from "./components/SideBarListUsers";
 import Tchat from "./components/Tchat";
 
 export default async function App() {
   const currentUser = await getCurrentUser();
+  const conversation = await getConversation({ title: "Général" });
 
   //todo : vérif que l'utilisateur a bien payé avec un middleware
 
   return (
-    <div className="h-[100vh] w-[100vw] flex flex-col">
-      <Header />
-      {/*@ts-ignore*/}
-      <Tchat title="Général" imageUrl="men.png" currentUser={currentUser} />
-    </div>
+    <>
+      <div className="h-[100vh] w-[100vw] flex flex-col">
+        <Header />
+        {/*@ts-ignore*/}
+        <Tchat
+          conversation={conversation}
+          imageUrl="men.png"
+          currentUser={currentUser}
+        />
+      </div>
+      <SideBarListUsers conversation={conversation} />
+    </>
   );
 }

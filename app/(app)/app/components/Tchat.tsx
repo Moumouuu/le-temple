@@ -1,25 +1,26 @@
 import UserType from "@/app/types/userType";
 import InputSend from "./InputSend";
 
-import getConversation from "@/app/actions/getConversation";
 import TchatMessages from "./TchatMessages";
 
 interface tchatProps {
-  title?: string;
-  id?: number;
+  conversation: any;
   imageUrl: string;
   currentUser: UserType;
 }
 
 export default async function Tchat({
-  title,
-  id,
+  conversation,
   imageUrl,
   currentUser,
 }: tchatProps) {
-  const conversation = await getConversation({ title, id });
-
-  if (!conversation) return <span>Un problème est survenue lors de la récupération de votre conversation...</span>;
+  if (!conversation)
+    return (
+      <span>
+        Un problème est survenue lors de la récupération de votre
+        conversation...
+      </span>
+    );
 
   return (
     <div

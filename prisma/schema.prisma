@@ -17,12 +17,13 @@ model User {
   paid         Boolean        @default(false)
   Message      Message[]
   Conversation Conversation[]
+  Badge        Badge[]
 }
 
 model Message {
   id             Int           @id @default(autoincrement())
   text           String
-  createdAt      String     
+  createdAt      String
   user           User          @relation(fields: [userId], references: [id])
   userId         Int
   Conversation   Conversation? @relation(fields: [conversationId], references: [id])
@@ -34,4 +35,13 @@ model Conversation {
   title    String    @unique
   users    User[]
   messages Message[]
+}
+
+model Badge {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  image       String?
+  user        User    @relation(fields: [userId], references: [id])
+  userId      Int
 }

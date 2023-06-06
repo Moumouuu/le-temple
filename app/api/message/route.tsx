@@ -1,3 +1,4 @@
+import getConversation from "@/app/actions/getConversation";
 import prisma from "@/app/libs/prisma";
 import { pusherServer } from "@/app/libs/pusher";
 import { NextRequest, NextResponse } from "next/server";
@@ -27,6 +28,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
     },
   });
 
+  // check if user is in conversation, if not add him to conversation
+  const conversation: any = await getConversation({ id: conversationId });
+  if (!conversation.users.find((user: any) => user.id !== userId)) {
+    //todo check si ça marche bien
+    await prisma.conversation.update({
+      where: {
+        id: conversationId,
+      },
+      data: {
+        users: {
+          connect: {
+            id: userId,
+          },
+        },
+      },
+    });
+  }
+
   if (!newMessage || !user)
     return NextResponse.json(
       { error: "Something went wrong!" },
@@ -50,12 +69,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
     user.Message.length === 500 ||
     user.Message.length === 1000
   ) {
-    //todo : create badge for user
-    badge = {
-      name: "Badge de message",
-      description: `Vous avez totalisé un total de ${user.Message.length} messages`,
-      imageUrl: `badge-message-${user.Message.length}.png`,
-    };
+    badge = await prisma.badge.create({
+      data: {
+        name: "Badge de message",
+        description: `Vous avez totalisé un total de ${user.Message.length} messages`,
+        image: `badge-message-${user.Message.length}.png`,
+        userId: user.id,
+      },
+    });
   }
 
   return NextResponse.json({ message: newMessage, badge });
