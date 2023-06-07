@@ -1,7 +1,7 @@
 "use client";
+import { Badge } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
-
 interface SideBarListUsersProps {
   conversation: any;
 }
@@ -31,18 +31,29 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
         {listOfUsers.map((user: any, i: number) => (
           <div
             key={i}
-            className="flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
+            className="w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
           >
             <Image
               className="rounded-full mr-3"
               src={user.image}
-              width={50}
-              height={50}
+              width={60}
+              height={60}
               alt={`Logo of the user : ${user.image}`}
             />
             <div className="flex flex-col">
-              <span className="text-md">{user.name}</span>
-              {/* each badge */}
+              <span className="text-xl">{user.name}</span>
+              <div className="flex overflow-x-scroll ">
+                {user.Badge.map((badge: Badge) => (
+                  <Image
+                    key={badge.id}
+                    src={`/assets/images/badges/${badge.image}`}
+                    width={50}
+                    height={50}
+                    alt={`Badge ${badge.description}`}
+                    className="mr-4"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         ))}

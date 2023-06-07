@@ -16,7 +16,11 @@ export default async function getConversation({
         title: title,
       },
       include: {
-        users: true,
+        users: {
+          include: {
+            Badge: true,
+          },
+        },
         messages: {
           include: {
             user: true,
