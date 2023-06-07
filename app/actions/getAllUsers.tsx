@@ -6,7 +6,7 @@ export default async function getAllUsers(currentUser: User) {
     where: {
       paid: true,
       id: {
-        not: currentUser.id,
+        not: currentUser?.id,
       },
     },
     include: {
