@@ -1,7 +1,12 @@
-import React from 'react'
+import UserAuthorize from "@/app/wrappers/userAuthorize";
 
 export default function page() {
   return (
-    <div>page</div>
-  )
+    <>
+      {/*@ts-ignore*/}
+      <UserAuthorize>
+        <div>page</div>
+      </UserAuthorize>
+    </>
+  );
 }

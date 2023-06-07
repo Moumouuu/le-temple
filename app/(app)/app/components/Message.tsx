@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ProfileUser from "@/app/components/ProfileUser";
 
 interface messageProps {
   message: any;
@@ -19,13 +19,9 @@ export default function Message({ message, isUser, formatDate }: messageProps) {
           "flex items-center " + (isUser(message) ? "flex-row-reverse" : "")
         }
       >
-        <Image
-          className="rounded-full mx-3"
-          src={message.user?.image}
-          width={50}
-          height={50}
-          alt={`Picture of the user ${message.user.name}`}
-        />
+        <div>
+          <ProfileUser user={message.user} />
+        </div>
         <div
           className={
             "flex flex-col " +

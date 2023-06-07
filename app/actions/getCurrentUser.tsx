@@ -16,6 +16,13 @@ export default async function getCurrentUser() {
       where: {
         email: session?.user?.email as string,
       },
+      include: {
+        Conversation: {
+          include: {
+            users: true,
+          },
+        },
+      },
       update: {},
       create: {
         email: session?.user?.email as string,

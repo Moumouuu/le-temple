@@ -24,6 +24,9 @@ export const authOptions: NextAuthOptions = {
     }),
     //todo: ...add apple and instagram providers here
   ],
+  pages: {
+    signIn: "/",
+  },
   session: {
     strategy: "jwt",
   },

@@ -36,9 +36,9 @@ export default function Aside({ currentUser }: asideProps) {
       isActive: path === "/app/messages",
     },
     {
-      label: "Mon Profil",
-      href: "app/profile",
-      isActive: path === "/app/profile",
+      label: `Mon Profil`,
+      href: `app/profile/${currentUser?.id}`,
+      isActive: path === `/app/profile/${currentUser?.id}`,
     },
   ];
 

@@ -1,4 +1,5 @@
 "use client";
+import ProfileUser from "@/app/components/ProfileUser";
 import { Badge } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
@@ -33,13 +34,9 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
             key={i}
             className="w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
           >
-            <Image
-              className="rounded-full mr-3"
-              src={user.image}
-              width={60}
-              height={60}
-              alt={`Logo of the user : ${user.image}`}
-            />
+            <div className="mr-2">
+              <ProfileUser user={user} />
+            </div>
             <div className="flex flex-col">
               <span className="text-xl">{user.name}</span>
               <div className="flex overflow-x-scroll ">

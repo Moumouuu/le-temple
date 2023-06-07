@@ -1,3 +1,12 @@
+import UserAuthorize from "@/app/wrappers/userAuthorize";
+
 export default function page() {
-  return <div>page</div>;
+  return (
+    <>
+      {/*@ts-ignore*/}
+      <UserAuthorize>
+        <div>page</div>
+      </UserAuthorize>
+    </>
+  );
 }
