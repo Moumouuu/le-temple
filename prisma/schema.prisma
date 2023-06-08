@@ -31,10 +31,11 @@ model Message {
 }
 
 model Conversation {
-  id       Int       @id @default(autoincrement())
-  title    String    @unique
-  users    User[]
-  messages Message[]
+  id          Int       @id @default(autoincrement())
+  title       String    @unique
+  lastMessage String?
+  users       User[]
+  messages    Message[]
 }
 
 model Badge {

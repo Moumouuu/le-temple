@@ -49,8 +49,8 @@ export default function Aside({ currentUser }: asideProps) {
   return (
     <>
       <div className="border-r-4 border-[#095234] h-[100vh] hidden md:flex flex-col justify-between">
-        <div>
-          <div className="flex flex-col justify-center m-8 mb-10">
+        <div className="overflow-y-scroll overflow-x-clip">
+          <div className="flex flex-col justify-center m-2 mb-10">
             <Link href="/">
               <h1 className="text-6xl text-center ">Le Temple</h1>
             </Link>
@@ -67,7 +67,7 @@ export default function Aside({ currentUser }: asideProps) {
                 className={
                   item.isActive
                     ? `bg-gradient-to-r from-[#095234] to-[#16925F] text-white py-10 text-center text-2xl`
-                    : "py-10 text-center text-2xl text"
+                    : "py-6 text-center text-2xl text"
                 }
                 href={item.href}
               >

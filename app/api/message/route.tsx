@@ -36,6 +36,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         id: conversationId,
       },
       data: {
+        lastMessage: newMessage.text,
         users: {
           connect: {
             id: userId,
@@ -50,6 +51,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
       { error: "Something went wrong!" },
       { status: 400 }
     );
+
+    //todo : faire un trigger avec pusher pour update la conversation et le dernier message envoyé
 
   await pusherServer.trigger(conversationId.toString(), "new-message", {
     message: {

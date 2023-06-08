@@ -24,7 +24,7 @@ export default async function Tchat({
 
   return (
     <div
-      className={`w-[100%] h-[100%] md:h-[90%] md:bg-[url('/assets/images/men.png')] bg-no-repeat bg-center flex flex-col justify-end`}
+      className={`h-[100%] lg:h-[90%] md:bg-[url('/assets/images/men.png')] bg-no-repeat bg-center flex flex-col justify-end`}
     >
       <TchatMessages currentUser={currentUser} conversation={conversation} />
       <InputSend currentUser={currentUser} conversation={conversation} />

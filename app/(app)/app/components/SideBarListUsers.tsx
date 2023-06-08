@@ -20,7 +20,7 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
 
   return (
     <div className="hidden lg:block h-[100vh] p-6 border-l-4 border-[#095234]">
-      <div className="flex flex-col items-center justify-between mb-4">
+      <div className="flex h-[100%] flex-col items-center justify-between mb-4">
         <h1 className="text-3xl mb-4">Utilisateurs</h1>
         <input
           type="text"
@@ -28,32 +28,33 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
           placeholder="Chercher un utilisateur... "
           className="border-4 rounded-lg bg-transparent border-[#095234] p-3"
         />
-
-        {listOfUsers.map((user: any, i: number) => (
-          <div
-            key={i}
-            className="w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
-          >
-            <div className="mr-2">
-              <ProfileUser user={user} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl">{user.name}</span>
-              <div className="flex overflow-x-scroll ">
-                {user.Badge.map((badge: Badge) => (
-                  <Image
-                    key={badge.id}
-                    src={`/assets/images/badges/${badge.image}`}
-                    width={50}
-                    height={50}
-                    alt={`Badge ${badge.description}`}
-                    className="mr-4"
-                  />
-                ))}
+        <div className="h-[100%] overflow-y-scroll">
+          {listOfUsers.map((user: any, i: number) => (
+            <div
+              key={i}
+              className="w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
+            >
+              <div className="mr-2">
+                <ProfileUser user={user} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl">{user.name}</span>
+                <div className="flex overflow-x-scroll ">
+                  {user.Badge.map((badge: Badge) => (
+                    <Image
+                      key={badge.id}
+                      src={`/assets/images/badges/${badge.image}`}
+                      width={50}
+                      height={50}
+                      alt={`Badge ${badge.description}`}
+                      className="mr-4"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

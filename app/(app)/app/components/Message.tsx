@@ -43,7 +43,7 @@ export default function Message({ message, isUser, formatDate }: messageProps) {
                 : "text-white rounded-tl-none bg-gradient-to-r from-[#095234] to-[#16925F] ")
             }
           >
-            <span className="text-sm md:text-xl break-words">
+            <span className="message text-sm md:text-xl break-words">
               {message.text}
             </span>
             <span className="text-xs">{formatDate(message.createdAt)}</span>

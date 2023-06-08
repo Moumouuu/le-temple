@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="hidden md:block w-[100%] h-[10%] p-6 border-b-4 border-[#095234] relative">
+    <div className="hidden lg:block w-[100%] h-[10%] p-6 border-b-4 border-[#095234] relative">
       <div className="flex justify-center">
         <span className="text-xl">
           « Je ne perds jamais. Soit je gagne, soit j&apos;apprends. » - Nelson

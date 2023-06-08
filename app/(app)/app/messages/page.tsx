@@ -17,7 +17,7 @@ export default async function page({ searchParams }: any) {
     <>
       {/*@ts-ignore*/}
       <UserAuthorize>
-        <div className="h-[100vh] w-[100vw] flex flex-col">
+        <div className="relative h-[100vh] w-[100vw] flex flex-col">
           <Header />
           {conversation ? (
             <>
@@ -25,9 +25,11 @@ export default async function page({ searchParams }: any) {
               <Tchat conversation={conversation} currentUser={currentUser} />
             </>
           ) : (
-            <p className="w-[100%] h-[100%] flex items-center justify-center">
-              Veuillez séléctionner / créer une conversation.
-            </p>
+            <>
+              <p className="w-[100%] h-[100%] flex items-center justify-center text-center">
+                Veuillez séléctionner / créer une conversation.
+              </p>
+            </>
           )}
         </div>
         {/*@ts-ignore*/}
