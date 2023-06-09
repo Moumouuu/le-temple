@@ -13,8 +13,10 @@ model User {
   id           Int            @id @default(autoincrement())
   email        String         @unique
   name         String?
+  description  String?
   image        String?
   paid         Boolean        @default(false)
+  firstLogin   Boolean        @default(true)
   Message      Message[]
   Conversation Conversation[]
   Badge        Badge[]
