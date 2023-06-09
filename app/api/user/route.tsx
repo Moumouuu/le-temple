@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const { data, user } = await req.json();
-  console.log(data, user);
 
   if (!data.username || !data.description || !user) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
@@ -30,4 +29,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
     );
   }
   return NextResponse.json({ success: true });
+}
+
+export async function GET(req: NextRequest, res: NextResponse) {
+  const { userId } = await req.json();
+
+  if (!userId) {
+    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+  }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+
+  if (!user) {
+    return NextResponse.json({ error: "User not found" }, { status: 400 });
+  }
+
+  return NextResponse.json({ user });
 }

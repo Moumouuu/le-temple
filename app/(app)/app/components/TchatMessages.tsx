@@ -51,7 +51,7 @@ export default function TchatMessages({
 
   return (
     <>
-      <div className="w-[100%] h-[100%] overflow-y-scroll">
+      <div className="w-[100%] h-[100%] overflow-y-scroll p-2 lg:p-0">
         {messages.messages?.map((message: any, i: any) => (
           <Message
             key={i}
