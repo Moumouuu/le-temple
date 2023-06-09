@@ -2,7 +2,7 @@
 import ProfileUser from "@/app/components/ProfileUser";
 import { User } from "@prisma/client";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
@@ -20,14 +20,15 @@ export default function SideBarConversation({
 }: SideBarConversationProps) {
   const [showAddConversation, setShowAddConversation] = useState(false);
   const [allUsersFiltered, setAllUsersFiltered] = useState(allUsers);
-  const router = useRouter();
-  const handleShowAddConversation = () => {
-    setShowAddConversation((prev) => !prev);
-  };
   const [showSidebar, setShowSidebar] = useState(false);
+  const targetConvId = useSearchParams()?.get("conversationId");
+  const router = useRouter();
 
   const handleShowSidebar = () => {
     setShowSidebar((prev) => !prev);
+  };
+  const handleShowAddConversation = () => {
+    setShowAddConversation((prev) => !prev);
   };
 
   const handleCreateConversation = async (targetUser: User) => {
@@ -163,7 +164,12 @@ export default function SideBarConversation({
                           );
                         }}
                         key={conv.id}
-                        className="cursor-pointer w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
+                        className={
+                          (conv.id == targetConvId
+                            ? "border-4 border-[#095234]"
+                            : "bg-gradient-to-r from-[#095234] to-[#16925F] text-white") +
+                          ` cursor-pointer w-[100%] flex  p-4 my-4 rounded-md items-center`
+                        }
                       >
                         <div className="mr-2">
                           <ProfileUser

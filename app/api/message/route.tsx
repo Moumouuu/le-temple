@@ -30,7 +30,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   // check if user is in conversation, if not add him to conversation
   const conversation: any = await getConversation({ id: conversationId });
-  if (conversation.users.length === 0 || conversation.users.find((user: any) => user.id !== userId)) {
+  if (
+    conversation.users.length === 0 ||
+    conversation.users.find((user: any) => user.id !== userId)
+  ) {
     await prisma.conversation.update({
       where: {
         id: conversationId,
@@ -52,12 +55,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
       { status: 400 }
     );
 
-    //todo : faire un trigger avec pusher pour update la conversation et le dernier message envoyé
+  //todo : faire un trigger avec pusher pour update la conversation et le dernier message envoyé
 
   await pusherServer.trigger(conversationId.toString(), "new-message", {
     message: {
       ...newMessage,
-      user,
+      user: {
+        ...user,
+        Message: {},
+      },
     },
   });
 
