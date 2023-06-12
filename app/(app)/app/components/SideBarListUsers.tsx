@@ -8,7 +8,7 @@ interface SideBarListUsersProps {
 }
 
 const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
-  const [listOfUsers, setListOfUsers] = useState(conversation.users);
+  const [listOfUsers, setListOfUsers] = useState(conversation?.users);
 
   const filterUsers = (users: any, e: string) => {
     return setListOfUsers(
@@ -29,7 +29,7 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
           className="border-4 rounded-lg bg-transparent border-[#095234] p-3"
         />
         <div className="h-[100%] overflow-y-scroll">
-          {listOfUsers.map((user: any, i: number) => (
+          {listOfUsers?.map((user: any, i: number) => (
             <div
               key={i}
               className="w-[100%] flex bg-gradient-to-r from-[#095234] to-[#16925F] text-white p-4 my-4 rounded-md items-center"
@@ -40,7 +40,7 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
               <div className="flex flex-col">
                 <span className="text-xl">{user.name}</span>
                 <div className="flex overflow-x-scroll ">
-                  {user.Badge.map((badge: Badge) => (
+                  {user.Badge?.map((badge: Badge) => (
                     <Image
                       key={badge.id}
                       src={`/assets/images/badges/${badge.image}`}

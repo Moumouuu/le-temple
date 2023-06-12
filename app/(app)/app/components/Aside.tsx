@@ -1,22 +1,22 @@
 "use client";
 
 import Arrow from "@/app/components/Arrow";
-import UserType from "@/app/types/userType";
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { BsArrowLeft, BsThreeDots } from "react-icons/bs";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 interface asideProps {
-  currentUser: UserType;
+  currentUser: any;
 }
 
 export default function Aside({ currentUser }: asideProps) {
   const path = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const items = [
@@ -66,13 +66,29 @@ export default function Aside({ currentUser }: asideProps) {
               <Link
                 className={
                   item.isActive
-                    ? `bg-gradient-to-r from-[#095234] to-[#16925F] text-white py-10 text-center text-2xl`
+                    ? `bg-gradient-to-r from-[#095234] to-[#16925F] text-white py-10 text-center text-2xl                    `
                     : "py-6 text-center text-2xl text"
                 }
                 href={item.href}
               >
                 {item.label}
               </Link>
+              {item.label === "Groupes" &&
+                item.isActive &&
+                currentUser?.Conversation?.map((conversation: any) => {
+                  return (
+                    conversation.users.length > 2 &&
+                    conversation.title != "Général" && (
+                      <Link
+                        key={conversation.id}
+                        className="text-sm text-center text-white hover:text-black p-2 bg-gradient-to-r from-[#095234] to-[#16925F]"
+                        href={`/app/groups/?conversationId=${conversation.id}`}
+                      >
+                        {conversation.title}
+                      </Link>
+                    )
+                  );
+                })}
             </div>
           ))}
           ;
@@ -124,6 +140,22 @@ export default function Aside({ currentUser }: asideProps) {
                   >
                     {item.label}
                   </Link>
+                  {item.label === "Groupes" &&
+                    item.isActive &&
+                    currentUser?.Conversation?.map((conversation: any) => {
+                      return (
+                        conversation.users.length > 2 &&
+                        conversation.title != "Général" && (
+                          <Link
+                            key={conversation.id}
+                            className="text-sm text-center text-white hover:text-black p-2 bg-gradient-to-r from-[#095234] to-[#16925F]"
+                            href={`/app/groups/?conversationId=${conversation.id}`}
+                          >
+                            {conversation.title}
+                          </Link>
+                        )
+                      );
+                    })}
                 </div>
               ))}
               ;

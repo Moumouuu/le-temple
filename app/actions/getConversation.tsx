@@ -39,7 +39,11 @@ export default async function getConversation({
         id: id,
       },
       include: {
-        users: true,
+        users: {
+          include: {
+            Badge: true,
+          },
+        },
         messages: {
           include: {
             user: true,
