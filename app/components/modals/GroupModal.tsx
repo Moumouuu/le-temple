@@ -17,6 +17,7 @@ interface GroupModalProps {
 const GroupModal = ({ allUser, currentUser }: GroupModalProps) => {
   const { onClose } = useGroupModal();
   const [users, setUsers] = useState<User[]>([]);
+  const [groupName, setGroupName] = useState("");
   const router = useRouter();
 
   const toggleCheckbox = (user: User) => {
@@ -28,10 +29,18 @@ const GroupModal = ({ allUser, currentUser }: GroupModalProps) => {
   };
 
   const createGroup = async () => {
+    if (users.length < 2) {
+      return toast.error("Vous devez sélectionner au moins 2 personnes.");
+    }
+    if (!groupName) {
+      return toast.error("Vous devez donner un nom au groupe.");
+    }
+
     let res = await toast.promise(
       axios.post("/api/groups", {
         users,
         currentUser,
+        title: groupName,
       }),
       {
         loading: "Création du groupe...",
@@ -45,10 +54,20 @@ const GroupModal = ({ allUser, currentUser }: GroupModalProps) => {
 
   const body = (
     <div className="flex flex-col items-center ">
-      <p className="text-xl m-4">
+      <p className="text-md lg:text-xl m-4">
         Sélectionner les personnes que vous souhaitez ajouter à votre groupe.
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
+      <div className="my-4 flex flex-col">
+        <input
+          type="text"
+          value={groupName}
+          onChange={(e) => setGroupName(e.target.value)}
+          className="w-[100%] px-5 py-3 text-gray-700 placeholder-gray-400 border rounded-md focus:shadow-outline"
+          placeholder="Nom du groupe"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 h-[200px] overflow-y-scroll">
         {allUser.map((user: User) => (
           <div key={user.id} className="flex flex-row items-center mx-4 my-2">
             <input

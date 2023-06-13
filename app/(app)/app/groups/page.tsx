@@ -3,7 +3,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import UserAuthorize from "@/app/wrappers/userAuthorize";
 
 import getAllUsers from "@/app/actions/getAllUsers";
-import { Toaster } from "react-hot-toast";
+
 import Header from "../components/Header";
 import SideBarListUsers from "../components/SideBarListUsers";
 import Tchat from "../components/Tchat";

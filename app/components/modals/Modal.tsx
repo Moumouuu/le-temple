@@ -34,7 +34,7 @@ const Modal = ({ title, body, handleClose }: ModalProps) => {
               className="rounded-xl my-4"
             />
           </div>
-          <h2 className="text-5xl my-4 text-center">{title}</h2>
+          <h2 className="text-3xl lg:text-5xl my-4 text-center">{title}</h2>
           <div className="w-full">{body}</div>
           <div className="my-4">
             <Arrow big />

@@ -1,14 +1,20 @@
 "use client";
 import ProfileUser from "@/app/components/ProfileUser";
+import RemoveGroupModal from "@/app/components/modals/RemoveGroupModal";
+import useRemoveGroupModal from "@/app/hooks/useRemoveBadgeModal";
+
 import { Badge } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
+
+import { ImExit } from "react-icons/im";
 interface SideBarListUsersProps {
   conversation: any;
 }
 
 const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
   const [listOfUsers, setListOfUsers] = useState(conversation?.users);
+  const { onOpen, showModal } = useRemoveGroupModal();
 
   const filterUsers = (users: any, e: string) => {
     return setListOfUsers(
@@ -20,8 +26,14 @@ const SideBarListUsers = ({ conversation }: SideBarListUsersProps) => {
 
   return (
     <div className="hidden lg:block h-[100vh] p-6 border-l-4 border-[#095234]">
+      {showModal && <RemoveGroupModal conversation={conversation} />}
       <div className="flex h-[100%] flex-col items-center justify-between mb-4">
-        <h1 className="text-3xl mb-4">Utilisateurs</h1>
+        <div className="flex items-center mb-4 ">
+          <h1 className="text-3xl mr-3">Utilisateurs</h1>
+          {conversation?.title !== "Général" && (
+            <ImExit size={30} className="cursor-pointer" onClick={onOpen} />
+          )}
+        </div>
         <input
           type="text"
           onChange={(e) => filterUsers(conversation.users, e.target.value)}

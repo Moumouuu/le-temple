@@ -4,7 +4,7 @@ import Arrow from "@/app/components/Arrow";
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import { BsArrowLeft, BsThreeDots } from "react-icons/bs";
@@ -16,8 +16,8 @@ interface asideProps {
 
 export default function Aside({ currentUser }: asideProps) {
   const path = usePathname();
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const params = useSearchParams();
 
   const items = [
     {
@@ -81,10 +81,29 @@ export default function Aside({ currentUser }: asideProps) {
                     conversation.title != "Général" && (
                       <Link
                         key={conversation.id}
-                        className="text-sm text-center text-white hover:text-black p-2 bg-gradient-to-r from-[#095234] to-[#16925F]"
+                        className={
+                          (params?.get("conversationId") == conversation.id
+                            ? "text-black bg-[#FFFAE6] "
+                            : "text-white bg-gradient-to-r from-[#095234] to-[#16925F] ") +
+                          ` text-sm text-center  hover:text-black py-6 px-2 border-y border-gray-300/30 `
+                        }
                         href={`/app/groups/?conversationId=${conversation.id}`}
                       >
                         {conversation.title}
+                        <div className="flex items-center w-full overflow-x-scroll">
+                          {conversation.users.map((user: any) => {
+                            return (
+                              <Image
+                                key={user.id}
+                                className="rounded-full mr-2"
+                                src={user.image}
+                                height={30}
+                                width={30}
+                                alt="profile image"
+                              />
+                            );
+                          })}
+                        </div>
                       </Link>
                     )
                   );
@@ -129,7 +148,11 @@ export default function Aside({ currentUser }: asideProps) {
                 </div>
               </div>
               {items.map((item, i) => (
-                <div key={i} className="flex flex-col">
+                <div
+                  key={i}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="flex flex-col"
+                >
                   <Link
                     className={
                       item.isActive
@@ -148,10 +171,29 @@ export default function Aside({ currentUser }: asideProps) {
                         conversation.title != "Général" && (
                           <Link
                             key={conversation.id}
-                            className="text-sm text-center text-white hover:text-black p-2 bg-gradient-to-r from-[#095234] to-[#16925F]"
+                            className={
+                              (params?.get("conversationId") == conversation.id
+                                ? "text-black bg-[#FFFAE6] "
+                                : "text-white bg-gradient-to-r from-[#095234] to-[#16925F] ") +
+                              ` text-sm text-center  hover:text-black py-6 px-2 border-y border-gray-300/30 `
+                            }
                             href={`/app/groups/?conversationId=${conversation.id}`}
                           >
                             {conversation.title}
+                            <div className="flex items-center w-full overflow-x-scroll">
+                              {conversation.users.map((user: any) => {
+                                return (
+                                  <Image
+                                    key={user.id}
+                                    className="rounded-full mr-2"
+                                    src={user.image}
+                                    height={30}
+                                    width={30}
+                                    alt="profile image"
+                                  />
+                                );
+                              })}
+                            </div>
                           </Link>
                         )
                       );
