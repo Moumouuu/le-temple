@@ -10,7 +10,7 @@ export default async function page({ searchParams }: any) {
   const currentUser = await getCurrentUser();
   const allUsers = await getAllUsers(currentUser);
   const conversation = await getConversation({
-    id: Number(searchParams.conversationId),
+    id: searchParams.conversationId,
   });
 
   return (
