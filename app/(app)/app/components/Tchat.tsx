@@ -40,7 +40,7 @@ export default function Tchat({
       )}
       {showModalGroup && (
         <div className="block lg:hidden">
-          <RemoveGroupModal conversation={conversation} currentUser={currentUser} />
+          <RemoveGroupModal conversation={conversation}/>
         </div>
       )}
       {conversation.title != "Général" && (

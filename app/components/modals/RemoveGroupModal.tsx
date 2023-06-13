@@ -11,12 +11,10 @@ import Modal from "./Modal";
 
 interface RemoveGroupModalProps {
   conversation: any;
-  currentUser: User;
 }
 
 const RemoveGroupModal = ({
   conversation,
-  currentUser,
 }: RemoveGroupModalProps) => {
   const { onClose } = useRemoveGroupModal();
   const router = useRouter();
