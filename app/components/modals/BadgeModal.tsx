@@ -3,7 +3,7 @@ import useBadgeModal from "@/app/hooks/useBadgeModal";
 import Image from "next/image";
 import Modal from "./Modal";
 
-const BadgeModal = () => {
+const BadgeModal = ({ urlBadge }: any) => {
   const { onClose, message } = useBadgeModal();
 
   const body = (
@@ -11,7 +11,11 @@ const BadgeModal = () => {
       <p className="text-2xl m-2">Vous venez de recevoir un badge ! </p>
       <p className="text-lg">{message}</p>
       <Image
-        src="/assets/images/badge-message-1000.png"
+        src={
+          urlBadge
+            ? `/assets/images/badges/${urlBadge}`
+            : "/assets/images/badges/badge-message-5.png"
+        }
         width={60}
         height={60}
         alt={"badge"}

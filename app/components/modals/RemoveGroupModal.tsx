@@ -36,7 +36,7 @@ const RemoveGroupModal = ({ conversation }: any) => {
     <div className="flex flex-col items-center">
       <p className="text-md lg:text-xl m-2">
         Vous voulez supprimer ce groupe :{" "}
-        <span className="text-[#095234]">{conversation.title}</span> ?
+        <span className="text-[#095234]">{conversation?.title}</span> ?
       </p>
       <p className="text-sm lg:text-md m-2 text-red-900">
         Cette action est irréversible.

@@ -75,7 +75,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     user.Message.length === 50 ||
     user.Message.length === 100 ||
     user.Message.length === 500 ||
-    user.Message.length === 1000
+    user.Message.length === 1000 
   ) {
     badge = await prisma.badge.create({
       data: {

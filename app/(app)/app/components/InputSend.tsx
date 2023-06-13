@@ -31,8 +31,8 @@ export default function InputSend({
   const { register, handleSubmit, reset, setValue, getValues } =
     useForm<IFormInput>();
   const [showEmoji, setShowEmoji] = useState(false);
-  const badgeModal = useBadgeModal();
-  const { showModal } = useBadgeModal();
+  const [urlBadge, setUrlBadge] = useState("");
+  const { showModal, onOpen, setMessage } = useBadgeModal();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const res = await axios.post("/api/message", {
@@ -46,8 +46,8 @@ export default function InputSend({
     }
 
     if (res.data.badge) {
-      badgeModal.message = res.data.badge.description;
-      badgeModal.onOpen();
+      setMessage(res.data.badge.description);
+      onOpen();
     }
 
     reset();
@@ -59,7 +59,7 @@ export default function InputSend({
 
   return (
     <div>
-      {showModal && <BadgeModal />}
+      {showModal && <BadgeModal urlBadge={urlBadge} />}
 
       <Toaster />
       <form

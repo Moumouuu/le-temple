@@ -3,6 +3,7 @@ import { create } from "zustand";
 interface BadgeModalState {
   showModal: boolean;
   message: string;
+  setMessage: (message: string) => void;
   onOpen: () => void;
   onClose: () => void;
 }
