@@ -2,7 +2,7 @@ import prisma from "@/app/libs/prisma";
 
 interface getConversationProps {
   title?: string;
-  id?: number;
+  id?: string ;
 }
 
 export default async function getConversation({

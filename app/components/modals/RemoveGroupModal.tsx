@@ -23,16 +23,13 @@ const RemoveGroupModal = ({
 
   const quitGroup = async () => {
     const res = await toast.promise(
-      fetch(
-        `/api/groups?conversationId=${conversation.id}&currentUserId=${currentUser?.id}`,
-        {
-          method: "GET",
-        }
-      ),
+      fetch(`/api/groups?conversationId=${conversation.id}`, {
+        method: "GET",
+      }),
       {
-        loading: "Suppression du groupe...",
-        success: "Groupe supprimé !",
-        error: "Erreur lors de la suppression du groupe.",
+        loading: "Groupe en cours de quittage...",
+        success: "Groupe quitté !",
+        error: "Erreur lors du quittage du groupe.",
       }
     );
     if (res.status === 200) {

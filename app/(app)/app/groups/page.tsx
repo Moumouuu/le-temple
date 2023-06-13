@@ -12,7 +12,7 @@ import PageContent from "./components/PageContent";
 export default async function page({ searchParams }: any) {
   const currentUser = await getCurrentUser();
   const conversation = await getConversation({
-    id: Number(searchParams.conversationId),
+    id: searchParams.conversationId,
   });
   const allUser = await getAllUsers(currentUser);
 
