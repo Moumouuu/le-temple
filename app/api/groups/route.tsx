@@ -36,10 +36,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
   });
 }
 
-//used to delete a group because of a next 13 issue --> https://github.com/vercel/next.js/issues/48096
+//used to remove user from a group because of a next 13 issue --> https://github.com/vercel/next.js/issues/48096
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const conversationId = searchParams.get("conversationId") || ""; // for ts
+  const currentUserId = searchParams.get("currentUserId") || ""; // for ts
 
   if (!conversationId) {
     return NextResponse.json({
@@ -47,9 +48,17 @@ export async function GET(req: Request) {
     });
   }
 
-  await prisma.conversation.delete({
+  await prisma.conversation.update({
     where: {
       id: Number(conversationId),
+    },
+    data: {
+      users: {
+        //rmv current user from conversation
+        disconnect: {
+          id: Number(currentUserId),
+        },
+      },
     },
   });
 

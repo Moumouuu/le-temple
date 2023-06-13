@@ -22,7 +22,6 @@ export default function Tchat({
 }: tchatProps) {
   const { showModal } = usePresentationModal();
   const { showModal: showModalGroup, onOpen } = useRemoveGroupModal();
-  console.log(showModalGroup && conversation.title != "Général");
 
   if (!conversation)
     return (
@@ -41,7 +40,7 @@ export default function Tchat({
       )}
       {showModalGroup && (
         <div className="block lg:hidden">
-          <RemoveGroupModal conversation={conversation} />
+          <RemoveGroupModal conversation={conversation} currentUser={currentUser} />
         </div>
       )}
       {conversation.title != "Général" && (
